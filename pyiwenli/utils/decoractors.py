@@ -5,14 +5,14 @@ License: Copyright © 2020 iwenli.org Inc. All rights reserved.
 Github: https://github.com/iwenli
 Date: 2020-11-26 11:45:29
 LastEditors: iwenli
-LastEditTime: 2020-11-26 12:53:18
+LastEditTime: 2020-11-27 13:08:23
 Description: 常用装饰器
 '''
 __author__ = 'iwenli'
 
 import functools
 import time
-from handlers import LogHandler
+from pyiwenli.handlers import LogHandler
 
 __log = LogHandler("decoractors")
 

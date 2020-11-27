@@ -5,11 +5,11 @@ License: Copyright © 2020 iwenli.org Inc. All rights reserved.
 Github: https://github.com/iwenli
 Date: 2020-11-26 12:05:27
 LastEditors: iwenli
-LastEditTime: 2020-11-26 12:56:46
+LastEditTime: 2020-11-27 13:08:53
 Description: ...
 '''
 __author__ = 'iwenli'
-from handlers import LogHandler, debug, warn
+from pyiwenli.handlers import LogHandler, debug, warn
 
 
 def test_log():

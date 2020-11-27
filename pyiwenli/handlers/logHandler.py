@@ -5,12 +5,12 @@ License: Copyright © 2020 iwenli.org Inc. All rights reserved.
 Github: https://github.com/iwenli
 Date: 2020-11-25 16:21:35
 LastEditors: iwenli
-LastEditTime: 2020-11-26 12:38:48
+LastEditTime: 2020-11-27 13:22:20
 Description: 日志操作模块
 '''
 __author__ = 'iwenli'
 
-import os
+import os, sys
 import logging
 import datetime
 from logging.handlers import TimedRotatingFileHandler
@@ -35,12 +35,13 @@ _levelToName = {
 }
 
 # *文本记录路径
-CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
-ROOT_PATH = os.path.join(
-    CURRENT_PATH,
-    os.pardir,
-)
-LOG_PATH = os.path.join(ROOT_PATH, '_log',
+CURRENT_PATH = os.path.dirname(os.path.abspath(sys.argv[0]))
+# ROOT_PATH = os.path.join(
+#     CURRENT_PATH,
+#     os.pardir,
+# )
+
+LOG_PATH = os.path.join(CURRENT_PATH, '_log',
                         datetime.datetime.now().strftime('%Y%m%d%H%M%S'))
 if not os.path.exists(LOG_PATH):
     try:
@@ -52,6 +53,8 @@ if not os.path.exists(LOG_PATH):
 class LogHandler(logging.Logger):
     """
     LogHandler
+    建议先导入 CURRENT_PATH
+    指定路径 CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
     """
     def __init__(self, name, level=DEBUG, stream=True, file=True):
         self.name = name
@@ -111,58 +114,61 @@ class LogHandler(logging.Logger):
 
 
 __loggers = {}
+
+
 # 静态对象初始化  按错误类别记录的全局日志
-for level in _levelToName.keys():
-    file_name = _levelToName[level].lower()
-    log = LogHandler(file_name, level)
-    __loggers.update({level: log})
+def __generate_log(level):
+    if (level not in __loggers):
+        file_name = _levelToName[level].lower()
+        log = LogHandler(file_name, level)
+        __loggers.update({level: log})
+    return __loggers[level]
 
 
 def debug(msg, *args, **kwargs):
     '''
     静态记录日志到 debug 文件中
     '''
-    __loggers[DEBUG].debug(msg, *args, **kwargs)
+    __generate_log(DEBUG).debug(msg, *args, **kwargs)
 
 
 def info(msg, *args, **kwargs):
     '''
     静态记录日志到 info 文件中
     '''
-    __loggers[INFO].info(msg, *args, **kwargs)
+    __generate_log(INFO).info(msg, *args, **kwargs)
 
 
 def warning(msg, *args, **kwargs):
     '''
     静态记录日志到 warn 文件中
     '''
-    __loggers[WARN].warning(msg, *args, **kwargs)
+    __generate_log(WARN).warning(msg, *args, **kwargs)
 
 
 def warn(msg, *args, **kwargs):
     '''
     静态记录日志到 warn 文件中
     '''
-    __loggers[WARN].warning(msg, *args, **kwargs)
+    __generate_log(WARN).warning(msg, *args, **kwargs)
 
 
 def error(msg, *args, **kwargs):
     '''
     静态记录日志到 error 文件中
     '''
-    __loggers[ERROR].error(msg, *args, **kwargs)
+    __generate_log(ERROR).error(msg, *args, **kwargs)
 
 
 def critical(msg, *args, **kwargs):
     '''
     静态记录日志到 fatal 文件中
     '''
-    __loggers[FATAL].critical(msg, *args, **kwargs)
+    __generate_log(FATAL).critical(msg, *args, **kwargs)
 
 
 def fatal(msg, *args, **kwargs):
     '''
     静态记录日志到 fatal 文件中
     '''
-    __loggers[FATAL].critical(msg, *args, **kwargs)
-
+    __generate_log(FATAL).critical(msg, *args, **kwargs)

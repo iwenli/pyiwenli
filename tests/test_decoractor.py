@@ -12,7 +12,7 @@ __author__ = 'iwenli'
 import time
 
 # from utils.decoractors import timeit, logged
-from utils import timeit, logged
+from pyiwenli.utils import timeit, logged
 
 
 def test_timeit():

@@ -5,13 +5,13 @@ License: Copyright © 2020 iwenli.org Inc. All rights reserved.
 Github: https://github.com/iwenli
 Date: 2020-11-26 16:27:06
 LastEditors: iwenli
-LastEditTime: 2020-11-26 16:28:00
+LastEditTime: 2020-11-27 13:08:43
 Description: ...
 '''
 __author__ = 'iwenli'
 
-from handlers import ConfigHandler
-from core import LazyProperty
+from pyiwenli.handlers import ConfigHandler
+from pyiwenli.core import LazyProperty
 
 
 class TestConf(ConfigHandler):

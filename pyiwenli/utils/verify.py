@@ -5,12 +5,12 @@ License: Copyright © 2020 iwenli.org Inc. All rights reserved.
 Github: https://github.com/iwenli
 Date: 2020-11-26 16:33:06
 LastEditors: iwenli
-LastEditTime: 2020-11-26 16:55:52
+LastEditTime: 2020-11-27 13:08:33
 Description: 常用验证函数
 '''
 __author__ = 'iwenli'
 
-from core.const import REConst
+from pyiwenli.core.const import REConst
 import re
 
 

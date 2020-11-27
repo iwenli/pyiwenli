@@ -5,14 +5,14 @@ License: Copyright © 2020 iwenli.org Inc. All rights reserved.
 Github: https://github.com/iwenli
 Date: 2020-11-26 13:59:11
 LastEditors: iwenli
-LastEditTime: 2020-11-26 14:28:27
+LastEditTime: 2020-11-27 13:07:57
 Description: 配置
 '''
 __author__ = 'iwenli'
 
 # from core import LazyProperty,SingletonMetaClass
-from core.lazyProperty import LazyProperty
-from core.singletonMetaClass import SingletonMetaClass
+from pyiwenli.core.lazyProperty import LazyProperty
+from pyiwenli.core.singletonMetaClass import SingletonMetaClass
 import os
 
 

@@ -10,7 +10,7 @@ Description: ...
 '''
 __author__ = 'iwenli'
 
-from utils import get_ips, get_urls, get_emails, get_mobiles, is_ip
+from pyiwenli.utils import get_ips, get_urls, get_emails, get_mobiles, is_ip
 
 
 def test_verify_ip():

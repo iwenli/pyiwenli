@@ -10,7 +10,7 @@ Description: 正则提取数据
 '''
 __author__ = 'iwenli'
 
-from core.const import REConst
+from pyiwenli.core.const import REConst
 import re
 
 
