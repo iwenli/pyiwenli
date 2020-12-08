@@ -5,7 +5,7 @@ License: Copyright © 2020 iwenli.org Inc. All rights reserved.
 Github: https://github.com/iwenli
 Date: 2020-12-06 20:49:36
 LastEditors: iwenli
-LastEditTime: 2020-12-07 13:15:56
+LastEditTime: 2020-12-08 17:10:54
 Description: 发送邮件
 '''
 __author__ = 'iwenli'
@@ -157,6 +157,7 @@ class SendEmailHandler(object):
             msg['Bcc'] = self.__gen_header(bcc)
 
         try:
+            self.smtp.connect(self.host, self.port)
             self.smtp.login(self.user, self.password)
             self.smtp.sendmail(self.sender, receivers, msg.as_string())
             return True
@@ -179,13 +180,13 @@ if __name__ == '__main__':
     }
 
     handler = SendEmailHandler(**dic)
-    # res = handler.send_text(
-    #     "admin@iwenli.org",
-    #     "邮件标题",
-    #     "邮件内容",
-    #     # cc="499243647@qq.com",
-    #     # bcc="zhangyulong0203@gmail.com",
-    #     files=["D:\\0.data\\1.self\\4.python\\pyiwenli\\readme.md"])
+    res = handler.send_text(
+        "admin@iwenli.org",
+        "邮件标题",
+        "邮件内容",
+        # cc="499243647@qq.com",
+        # bcc="zhangyulong0203@gmail.com",
+        files=["D:\\0.data\\1.self\\4.python\\pyiwenli\\readme.md"])
 
     html = """<h1>标题</h1>
   <h2>小标题</h1>

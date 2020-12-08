@@ -3,8 +3,8 @@
 python 基础库
 
 - python setup.py sdist
-- twine upload --repository-url https://test.pypi.org/legacy/ dist/pyiwenli-0.0.6.tar.gz
-- twine upload dist/pyiwenli-0.0.6.tar.gz
+- twine upload --repository-url https://test.pypi.org/legacy/ dist/pyiwenli-0.0.7.tar.gz
+- twine upload dist/pyiwenli-0.0.7.tar.gz
 
 # 常用邮箱服务商的 `POP3` 和 `SMTP` 协议地址
 

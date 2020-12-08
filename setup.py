@@ -5,7 +5,7 @@ License: Copyright © 2020 iwenli.org Inc. All rights reserved.
 Github: https://github.com/iwenli
 Date: 2020-11-26 17:24:43
 LastEditors: iwenli
-LastEditTime: 2020-12-07 13:17:31
+LastEditTime: 2020-12-08 17:12:19
 Description: upload pip
 '''
 __author__ = 'iwenli'
@@ -13,7 +13,7 @@ __author__ = 'iwenli'
 from setuptools import setup, find_packages
 
 setup(name="pyiwenli",
-      version="0.0.6",
+      version="0.0.7",
       keywords=("pip", "iwenli"),
       description="自用工具封装",
       long_description="日志，邮件，装饰器等常用封装",
